@@ -14,6 +14,7 @@ import {
 } from '@nestjs/common';
 
 @Controller('projects')
+// Ex.: @UseInterceptors(AddHeaderInterceptor)
 export class ProjectsController {
   constructor(private readonly projectsService: ProjectsService) {}
 
