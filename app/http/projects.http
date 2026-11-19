@@ -1,0 +1,58 @@
+@baseUrl = http://localhost:3000
+@projectId = 1
+
+### Create project
+POST {{baseUrl}}/projects
+Content-Type: application/json
+
+{
+  "title": "Portfolio REST API",
+  "description": "API para gerenciamento dos projetos do portfolio",
+  "platformType": "web",
+  "projectStatus": "in_progress",
+  "status": "active"
+}
+
+### List projects
+GET {{baseUrl}}/projects
+
+### Filter projects by title
+GET {{baseUrl}}/projects?title=portfolio
+
+### Filter projects by platform type
+GET {{baseUrl}}/projects?platformType=web
+
+### Filter projects by project status
+GET {{baseUrl}}/projects?projectStatus=in_progress
+
+### Filter projects by status
+GET {{baseUrl}}/projects?status=active
+
+### Filter projects with multiple parameters
+GET {{baseUrl}}/projects?title=portfolio&platformType=web&projectStatus=in_progress&status=active
+
+### Get project by id
+GET {{baseUrl}}/projects/{{projectId}}
+
+### Update project
+PATCH {{baseUrl}}/projects/{{projectId}}
+Content-Type: application/json
+
+{
+  "title": "Portfolio REST API",
+  "description": "API atualizada para gerenciamento dos projetos do portfolio",
+  "platformType": "web",
+  "projectStatus": "completed",
+  "status": "active"
+}
+
+### Update only project status
+PATCH {{baseUrl}}/projects/{{projectId}}
+Content-Type: application/json
+
+{
+  "projectStatus": "completed"
+}
+
+### Delete project by id
+DELETE {{baseUrl}}/projects/{{projectId}}
