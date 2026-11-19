@@ -1,3 +1,4 @@
+import { ConflictExceptionFilter } from '@/study/filters/conflict.filter';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import process from 'process';
@@ -12,6 +13,7 @@ async function bootstrap() {
       transform: true,
     }),
   );
+  app.useGlobalFilters(new ConflictExceptionFilter());
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();

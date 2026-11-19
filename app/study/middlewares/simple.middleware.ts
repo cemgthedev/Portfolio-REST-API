@@ -5,5 +5,7 @@ export class SimpleMiddleware implements NestMiddleware {
     console.log(`Request: `, req);
 
     console.log(`Response: `, res);
+
+    next();
   }
 }
